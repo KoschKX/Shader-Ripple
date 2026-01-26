@@ -1,0 +1,54 @@
+<effect>
+<name>Ripple</name>
+<description>Ripple</description>
+<author>Kosch</author>
+<parameter>
+	<name>Freq</name>
+	<code>freq</code>
+	<description></description>
+	<type>float</type>
+	<property>edit</property>
+	<value>20</value>
+</parameter>
+<parameter>
+	<name>Speed</name>
+	<code>speed</code>
+	<description></description>
+	<type>float</type>
+	<property>edit</property>
+	<value>10</value>
+</parameter>
+<parameter>
+	<name>Amplitude</name>
+	<code>amplitude</code>
+	<description></description>
+	<type>float</type>
+	<property>edit</property>
+	<value>0.05</value>
+</parameter>
+<parameter>
+	<name>Center X</name>
+	<code>centerx</code>
+	<description></description>
+	<type>float</type>
+	<property>edit</property>
+	<value>0.5</value>
+</parameter>
+<parameter>
+	<name>Center Y</name>
+	<code>centery</code>
+	<description></description>
+	<type>float</type>
+	<property>edit</property>
+	<value>0.5</value>
+</parameter>
+<parameter>
+	<name>Effect</name>
+	<code>effect</code>
+	<description></description>
+	<type>float</type>
+	<property>edit</property>
+	<value>0.5</value>
+</parameter>
+<BackgroundTexture>1</BackgroundTexture>
+</effect>
