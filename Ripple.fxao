@@ -23,6 +23,7 @@ void main(void)
 #endif
 varying vec2 textureCoordinate;
 
+// Global variables
 uniform float freq;
 uniform float speed;
 uniform float amplitude;

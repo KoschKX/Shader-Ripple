@@ -1,32 +1,29 @@
 // Ripple
 
 //@Begin_vertex
-//version_####
 #ifdef GL_ES
  precision mediump float;
 #endif
-in vec2 position;
+uniform mat4 transformMatrix;
+uniform mat4 projectionMatrix;
 
-uniform mat3 projectionMatrix;
-uniform mat3 transformMatrix;
-uniform mat3 objectMatrix;
-uniform mat3 textureMatrix;
+attribute vec4 position;
+attribute vec2 texCoord;
+varying vec2 textureCoordinate;
 
-out vec2 textureCoordinate;
-
-void main()
+void main(void)
 {
-    vec3 pos = vec3(position, 1.0);
-    textureCoordinate = (textureMatrix * pos).xy;
-    gl_Position = vec4(projectionMatrix * transformMatrix * objectMatrix * pos, 1.0);
+	textureCoordinate = texCoord;
+	gl_Position = projectionMatrix * transformMatrix * position;
 }
 //@End
 //@Begin_fragment
-//version_####
 #ifdef GL_ES
  precision mediump float;
 #endif
-in vec2 textureCoordinate;
+varying vec2 textureCoordinate;
+
+// Global variables
 
 uniform float freq;
 uniform float speed;
@@ -37,8 +34,6 @@ uniform float effect;
 
 uniform sampler2D imgTexture;
 uniform lowp vec4 blendColor;
-
-out vec4 fragColor;
 
 void main(void)
 {
@@ -54,10 +49,10 @@ void main(void)
     vec2 newUV1 = center + normToUV * (distanceFromCenter + offset1);
     vec2 newUV2 = center + normToUV * (distanceFromCenter + offset2);
 
-    vec4 c1 = texture(imgTexture, newUV1);
-    vec4 c2 = texture(imgTexture, newUV2);
+    vec4 c1 = texture2D(imgTexture, newUV1);
+    vec4 c2 = texture2D(imgTexture, newUV2);
 
     vec4 color = mix(c1, c2, effect) * blendColor;
-    fragColor = color;
+    gl_FragColor = color;
 }
 //@End
