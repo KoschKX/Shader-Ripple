@@ -49,12 +49,10 @@ PS_OUTPUT ps_main(PS_INPUT input)
     
 }
 
-// Effect technique
 technique tech_main
 {
     pass P0
     {
-        // shaders
         VertexShader = NULL;
         PixelShader  = compile ps_2_a ps_main();
     }  
