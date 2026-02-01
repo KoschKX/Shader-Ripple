@@ -37,7 +37,6 @@ uniform float amplitude;
 uniform float centerx;
 uniform float centery;
 uniform float effect;
-uniform lowp vec4 blendColor;
 
 out vec4 fragColor;
 
@@ -47,14 +46,19 @@ void main(void)
     vec2 toUV = textureCoordinate - center;
     float distanceFromCenter = length(toUV);
     vec2 normToUV = toUV / max(distanceFromCenter, 0.0001);
+
     float wave = cos(freq * distanceFromCenter - speed * effect);
     float offset1 = effect * wave * amplitude;
     float offset2 = (1.0 - effect) * wave * amplitude;
+    
     vec2 newUV1 = center + normToUV * (distanceFromCenter + offset1);
     vec2 newUV2 = center + normToUV * (distanceFromCenter + offset2);
-    vec4 colorA = texture(bckgTexture, newUV1);
-    vec4 colorB = texture(bckgTexture, newUV2);
-    vec4 color = mix(colorA, colorB, effect) * blendColor;
+
+    vec4 c1 = texture(bckgTexture, newUV1);
+    vec4 c2 = texture(bckgTexture, newUV2);
+
+    vec4 color = mix(c1, c2, effect);
+    color.a = 1.0;
 
     fragColor = color;
 }
