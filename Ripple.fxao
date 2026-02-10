@@ -15,7 +15,7 @@ uniform float flipm;
 
 void main(void)
 {
-    textureCoordinate = mix(texCoord, vec2(1.0 - texCoord.x, texCoord.y), flipm);
+    textureCoordinate = mix(texCoord, vec2(texCoord.x, 1.0 - texCoord.y), flipm);
     gl_Position = projectionMatrix * transformMatrix * position;
 }
 //@End
