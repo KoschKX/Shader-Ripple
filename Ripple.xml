@@ -52,7 +52,7 @@
 </parameter>
 <parameter>
 	<name>Flip on Mobile</name>
-	<code>flip</code>
+	<code>flipm</code>
 	<description></description>
 	<type>bool</type>
 	<property>checkbox</property>

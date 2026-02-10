@@ -10,7 +10,7 @@ float amplitude ;
 float centerx;
 float centery;
 
-float flip;
+bool flip;
 
 float effect;
 

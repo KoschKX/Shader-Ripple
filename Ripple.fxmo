@@ -14,13 +14,13 @@ uniform mat3 textureMatrix;
 
 out vec2 textureCoordinate;
 
-uniform float flipm;
+uniform bool flipm;
 
 void main()
 {
     vec3 pos = vec3(position, 1.0);
     vec2 uv = (textureMatrix * pos).xy;
-    textureCoordinate = mix(uv, vec2(uv.x, 1.0 - uv.y), flipm);
+    textureCoordinate = flipm ? vec2(uv.x, 1.0 - uv.y) : uv;
     gl_Position = vec4(projectionMatrix * transformMatrix * objectMatrix * pos, 1.0);
 }
 //@End
