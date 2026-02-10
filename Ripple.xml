@@ -50,5 +50,13 @@
 	<property>edit</property>
 	<value>0.5</value>
 </parameter>
+<parameter>
+	<name>Flip on Mobile</name>
+	<code>flip</code>
+	<description></description>
+	<type>bool</type>
+	<property>checkbox</property>
+	<value>0</value>
+</parameter>
 <BackgroundTexture>1</BackgroundTexture>
 </effect>

@@ -10,6 +10,8 @@ float amplitude ;
 float centerx;
 float centery;
 
+float flip;
+
 float effect;
 
 struct PS_INPUT

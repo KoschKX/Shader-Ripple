@@ -11,9 +11,11 @@ attribute vec4 position;
 attribute vec2 texCoord;
 varying vec2 textureCoordinate;
 
+uniform float flipm;
+
 void main(void)
 {
-    textureCoordinate = texCoord;
+    textureCoordinate = mix(texCoord, vec2(1.0 - texCoord.x, texCoord.y), flipm);
     gl_Position = projectionMatrix * transformMatrix * position;
 }
 //@End
